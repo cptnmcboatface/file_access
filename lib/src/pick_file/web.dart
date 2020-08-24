@@ -10,6 +10,12 @@ Future<FileX> pickImage() async {
   return _files.first;
 }
 
+Future<List<FileX>> pickImage() async {
+  final _files = await _open(true, false,'image/*');
+  if (_files == null) return null;
+  return _files;
+}
+
 Future<FileX> pickVideo() async {
   final _files = await _open(false, false, 'video/*');
   if (_files == null || _files.isEmpty) return null;
